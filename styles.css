@@ -21,8 +21,10 @@ h1 {
 #sketchbook-container {
   width: 600px;
   height: 600px; 
-  border: 1px solid black;
+  /* border: 0.5px solid black; */
   margin: 30px auto;
+  display: flex;
+  flex-direction: column;
 }
 
 #controls-container {
@@ -30,4 +32,16 @@ h1 {
   height: 600px;
   border: 1px solid black;
   margin: 30px auto;
+}
+
+.grid-row {
+  display: flex;
+  flex-grow: 1;
+  margin-bottom: 2px;
+}
+
+.grid-block {
+  border: 1px black solid;
+  flex-grow: 1;
+  margin-right: 2px;
 }

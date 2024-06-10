@@ -47,3 +47,9 @@ function createGrid() {
 
 createGrid();
 
+// Clear Grid Container//
+function clearGrid() {
+  while (sketchbook.firstChild) {
+    sketchbook.removeChild(sketchbook.lastChild);
+  }
+}

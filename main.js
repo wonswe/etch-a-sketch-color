@@ -1,7 +1,7 @@
 const sketchbook = document.getElementById('sketchbook-container');
 const sketchbookLength = 600;
 
-let gridDimension = 10;
+let gridDimension = 16;
 
 function addRows() {
   for (let i = 0; i < gridDimension; i++) {
@@ -23,9 +23,21 @@ function addBlocks() {
   
 }
 
+function draw() {
+  const blocks = document.querySelectorAll(".grid-block");
+  blocks.forEach(block => block.addEventListener('mouseover', function(e) {
+    e.target.style.backgroundColor = "black";
+    
+
+
+
+  }))
+}
+ 
 function createGrid() {
   addRows();
   addBlocks();
+  draw();
 }
 
 createGrid();

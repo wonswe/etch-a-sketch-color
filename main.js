@@ -3,14 +3,17 @@ title.addEventListener("click", () => {
   window.location.reload();
 })
 
-const sketchbook = document.getElementById('sketchbook-container');
+const sketchbook = document.getElementById("sketchbook-container");
 const sketchbookLength = 600;
+
+const dimensionInput = document.getElementById("dimension-input");
+const dimensionValue = document.getElementById("dimension-value");
 
 let gridDimension = 16;
 
 function addRows() {
   for (let i = 0; i < gridDimension; i++) {
-    const row = document.createElement('div');
+    const row = document.createElement("div");
     row.classList.add("grid-row");
     sketchbook.appendChild(row);
   }
@@ -20,7 +23,7 @@ function addBlocks() {
   const rows = document.querySelectorAll(".grid-row");
   for (let i = 0; i < rows.length; i++) {
     for (let i = 0; i < gridDimension; i++) {
-      const block = document.createElement('div');
+      const block = document.createElement("div");
       block.classList.add("grid-block");
       rows[i].appendChild(block);
     }
@@ -30,7 +33,7 @@ function addBlocks() {
 
 function draw() {
   const blocks = document.querySelectorAll(".grid-block");
-  blocks.forEach(block => block.addEventListener('mouseover', function(e) {
+  blocks.forEach(block => block.addEventListener("mouseover", function(e) {
     e.target.style.backgroundColor = "black";
 
 
@@ -38,14 +41,6 @@ function draw() {
 
   }))
 }
- 
-function createGrid() {
-  addRows();
-  addBlocks();
-  draw();
-}
-
-createGrid();
 
 // Clear Grid Container//
 function clearGrid() {
@@ -53,3 +48,17 @@ function clearGrid() {
     sketchbook.removeChild(sketchbook.lastChild);
   }
 }
+
+// Create Default Grid //
+createGrid();
+ 
+// Create User Grid //
+function createGrid() {
+  clearGrid();
+  gridDimension = dimensionInput.value;
+  dimensionValue.textContent = `Dimension: ${dimensionInput.value} x ${dimensionInput.value}`
+  addRows();
+  addBlocks();
+  draw();
+}
+dimensionInput.addEventListener("input", createGrid);

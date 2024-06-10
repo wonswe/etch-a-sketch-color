@@ -1,3 +1,9 @@
+const title = document.querySelector("#title");
+
+title.addEventListener("click", () => {
+  window.location.reload();
+})
+
 const sketchbook = document.getElementById('sketchbook-container');
 const sketchbookLength = 600;
 
@@ -27,7 +33,7 @@ function draw() {
   const blocks = document.querySelectorAll(".grid-block");
   blocks.forEach(block => block.addEventListener('mouseover', function(e) {
     e.target.style.backgroundColor = "black";
-    
+
 
 
 

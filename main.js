@@ -1,5 +1,4 @@
 const title = document.querySelector("#title");
-
 title.addEventListener("click", () => {
   window.location.reload();
 })
@@ -47,3 +46,4 @@ function createGrid() {
 }
 
 createGrid();
+

@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Cute+Font&display=swap');
 
+:root {
+  --preview: black;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -50,4 +54,16 @@
   border: 1px black solid;
   flex-grow: 1;
   margin-right: 2px;
+}
+
+#color-preview {
+  background-color: var(--preview);
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  border: 2px solid black;
+}
+
+#color-preview:active {
+  transform: scale(1.1);
 }

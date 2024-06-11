@@ -35,14 +35,18 @@ function draw() {
   const blocks = document.querySelectorAll(".grid-block");
   blocks.forEach(block => block.addEventListener("mouseover", function(e) {
     e.target.style.backgroundColor = "black";
-    if (random) {
+
+    if (userRGB) {
+      toggleUserRGB();
+      e.target.style.backgroundColor = userRGB;
+    } else if (random) {
       let color = getColor();
       e.target.style.backgroundColor = color;
     } else if (eraser) {
       e.target.style.backgroundColor = "white";
     } else if (black) {
       e.target.style.backgroundColor = "black";
-    }
+    } 
 
 
 
@@ -88,6 +92,7 @@ function toggleRandom() {
   random = true; 
   black = false;
   eraser = false;
+  userRGB = '';
 }
 
 const randomButton = document.getElementById("random-button");
@@ -100,6 +105,7 @@ function toggleBlack() {
   black = true;
   random = false;
   eraser = false;
+  userRGB = '';
 }
 
 const blackButton = document.getElementById("black-button");
@@ -112,6 +118,7 @@ function toggleEraser() {
   eraser = true;
   random = false;
   black = false;
+  userRGB = '';
 }
 
 const eraserButton = document.getElementById("eraser-button");
@@ -123,6 +130,41 @@ const clearButton = document.getElementById("clear-button");
 function clearSketchbook() {
   const blocks = document.querySelectorAll(".grid-block");
   blocks.forEach(block => block.style.setProperty("background-color", "white"));
+
+  toggleBlack();
 }
 
 clearButton.addEventListener("click", clearSketchbook);
+
+// rgb selector //
+let userRGB;
+
+function selectRGB() {
+  let red = document.getElementById("red").value;
+  let green = document.getElementById("green").value;
+  let blue = document.getElementById("blue").value;
+
+  userRGB = `rgb(${red},${green},${blue})`;
+
+  document.documentElement.style.setProperty("--preview", userRGB);
+}
+
+document.getElementById("red").addEventListener("input", selectRGB);
+document.getElementById("green").addEventListener("input", selectRGB);
+document.getElementById("blue").addEventListener("input", selectRGB);
+
+// rgb handler //
+function toggleUserRGB() {
+  black = false;
+  random = false;
+  eraser = false;
+}
+
+// rgb preview block - click to set color //
+let rgbPreview = document.getElementById("color-preview");
+function setRGB() {
+  userRGB = document.documentElement.style.getPropertyValue("--preview");
+  toggleUserRGB();
+}
+
+rgbPreview.addEventListener("click", setRGB);

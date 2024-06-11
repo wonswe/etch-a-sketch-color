@@ -35,7 +35,10 @@ function draw() {
   const blocks = document.querySelectorAll(".grid-block");
   blocks.forEach(block => block.addEventListener("mouseover", function(e) {
     e.target.style.backgroundColor = "black";
-
+    if (random) {
+      let color = getColor();
+      e.target.style.backgroundColor = color;
+    }
 
 
 
@@ -63,7 +66,7 @@ function createGrid() {
 }
 dimensionInput.addEventListener("input", createGrid);
 
-// Generate random RGB color // 
+// Generate random color // 
 function getColor() {
   let symbols = "0123456789ABCDEF";
   let color = "#";
@@ -73,3 +76,13 @@ function getColor() {
   }
   return color;
 }
+
+// random color handler//
+let random = false;
+
+function toggleRandom() {
+  random = true; 
+}
+
+const randomButton = document.getElementById("random-button");
+randomButton.addEventListener("click", toggleRandom);

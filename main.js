@@ -38,6 +38,8 @@ function draw() {
     if (random) {
       let color = getColor();
       e.target.style.backgroundColor = color;
+    } else if (eraser) {
+      e.target.style.backgroundColor = "white";
     }
 
 
@@ -86,3 +88,23 @@ function toggleRandom() {
 
 const randomButton = document.getElementById("random-button");
 randomButton.addEventListener("click", toggleRandom);
+
+// Black color handler//
+function toggleBlack() {
+  random = false;
+  eraser = false;
+}
+
+const blackButton = document.getElementById("black-button");
+blackButton.addEventListener("click", toggleBlack);
+
+// Eraser handler// 
+let eraser = false;
+
+function toggleEraser() {
+  random = false;
+  eraser = true;
+}
+
+const eraserButton = document.getElementById("eraser-button");
+eraserButton.addEventListener("click", toggleEraser);

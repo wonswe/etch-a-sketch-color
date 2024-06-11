@@ -40,6 +40,8 @@ function draw() {
       e.target.style.backgroundColor = color;
     } else if (eraser) {
       e.target.style.backgroundColor = "white";
+    } else if (black) {
+      e.target.style.backgroundColor = "black";
     }
 
 
@@ -84,13 +86,18 @@ let random = false;
 
 function toggleRandom() {
   random = true; 
+  black = false;
+  eraser = false;
 }
 
 const randomButton = document.getElementById("random-button");
 randomButton.addEventListener("click", toggleRandom);
 
 // Black color handler//
+let black = true;
+
 function toggleBlack() {
+  black = true;
   random = false;
   eraser = false;
 }
@@ -102,9 +109,20 @@ blackButton.addEventListener("click", toggleBlack);
 let eraser = false;
 
 function toggleEraser() {
-  random = false;
   eraser = true;
+  random = false;
+  black = false;
 }
 
 const eraserButton = document.getElementById("eraser-button");
 eraserButton.addEventListener("click", toggleEraser);
+
+// Clear button //
+const clearButton = document.getElementById("clear-button");
+
+function clearSketchbook() {
+  const blocks = document.querySelectorAll(".grid-block");
+  blocks.forEach(block => block.style.setProperty("background-color", "white"));
+}
+
+clearButton.addEventListener("click", clearSketchbook);

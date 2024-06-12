@@ -67,7 +67,7 @@ createGrid();
 function createGrid() {
   clearGrid();
   gridDimension = dimensionInput.value;
-  dimensionValue.textContent = `Dimension: ${dimensionInput.value} x ${dimensionInput.value}`
+  dimensionValue.textContent = `${dimensionInput.value}x${dimensionInput.value}`
   addRows();
   addBlocks();
   draw();

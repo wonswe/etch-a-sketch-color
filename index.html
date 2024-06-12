@@ -14,7 +14,7 @@
     <div id="controls-container">
 
       <div id="dimension-input-container">
-        <p id="dimension-value">Dimension: 16 x 16</p>
+        <p id="dimension-value">16 x 16</p>
         <input type="range" id="dimension-input" value="16" min=1 max=30>
       </div>
       
@@ -25,16 +25,18 @@
         <button id="clear-button">clear</button>
       </div>
 
-      <div id="rgb-selectors">
-        <label for="red">r</label>
-        <input type="range" id="red" value="0" min="0" max="255">
-        <label for="green">g</label>
-        <input type="range" id="green" value="0" min="0" max="255">
-        <label for="blue">b</label>
-        <input type="range" id="blue" value="0" min="0" max="255">
+      <div id="rgb-selectors-container">
+        <div id="rgb-selectors">
+          <label for="red">r</label>
+          <input type="range" id="red" value="0" min="0" max="255">
+          <label for="green">g</label>
+          <input type="range" id="green" value="0" min="0" max="255">
+          <label for="blue">b</label>
+          <input type="range" id="blue" value="0" min="0" max="255">
+        </div>
+  
+        <div id="color-preview"></div>
       </div>
-
-      <div id="color-preview"></div>
 
     </div>
   </div>

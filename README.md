@@ -1,3 +1,3 @@
-# etch-a-sketch
+# Etch A Sketch - Color
 
-LIVE: https://wonswe.github.io/etch-a-sketch/
+LIVE: https://wonswe.github.io/etch-a-sketch-color/
